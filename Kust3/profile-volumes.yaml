@@ -1,0 +1,75 @@
+# The input volumes for the PingFederate server profiles
+apiVersion: v1
+kind: PersistentVolume 
+metadata:
+  name: pf-profile-volume 
+spec:
+  capacity: 
+      storage: 10Gi
+  volumeMode: Filesystem 
+  accessModes:
+  - ReadOnlyMany
+  storageClassName: pf-local-in-storage 
+  local:
+    path: <path to be placed via patch in kustomization.yaml, points to server profiles>
+# The following links this volumen to a node in the cluster 
+  nodeAffinity:
+    required: 
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname 
+          operator: In
+          values:
+          - docker-desktop
+---
+# The claim is used by the pod to claim the persistent volume defined 
+apiVersion: v1
+kind: PersistentVolumeClaim 
+metadata:
+  name: pf-profile-claim 
+spec:
+  # It links to the volume by the storageClassName 
+  storageClassName: pf-local-in-storage 
+  accessModes:
+    - ReadOnlyMany 
+  resources:
+    requests:
+      storage: 10Gi
+---
+# The input volumes for the PingFederate server profiles
+apiVersion: v1
+kind: PersistentVolume 
+metadata:
+  name: pd-profile-volume 
+spec:
+  capacity: 
+      storage: 10Gi
+  volumeMode: Filesystem 
+  accessModes:
+  - ReadOnlyMany
+  storageClassName: pd-local-in-storage 
+  local:
+    path: <path to be placed via patch in kustomization.yaml, points to server profiles>
+# The following links this volumen to a node in the cluster 
+  nodeAffinity:
+    required: 
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname 
+          operator: In
+          values:
+          - docker-desktop
+---
+# The claim is used by the pod to claim the persistent volume defined 
+apiVersion: v1
+kind: PersistentVolumeClaim 
+metadata:
+  name: pd-profile-claim 
+spec:
+  # It links to the volume by the storageClassName 
+  storageClassName: pd-local-in-storage 
+  accessModes:
+    - ReadOnlyMany 
+  resources:
+    requests:
+      storage: 10Gi
