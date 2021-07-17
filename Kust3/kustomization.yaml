@@ -80,7 +80,7 @@ patchesJson6902:
     patch: |-
       - op: replace 
         path: /spec/local/path
-        value: /Users/ijaffe/devops/Fuji/lab03/pingidentity-server-profiles/getting-started/pingfederate
+        value: /home/noorbutt/ping/PingDev/Kust3/pingidentity-server-profiles/baseline/pingfederate
 # add the paths to the PingDirectory profile local folder
   - target:
       group: 
@@ -90,7 +90,7 @@ patchesJson6902:
     patch: |-
       - op: replace
         path: /spec/local/path
-        value: /Users/ijaffe/devops/Fuji/lab03/pingidentity-server-profiles/getting-started/pingdirectory
+        value: /home/noorbutt/ping/PingDev/Kust3/pingidentity-server-profiles/baseline/pingdirectory
 # insert claims and volumes for containers for the PingFederate profile
   - target:
       group: apps

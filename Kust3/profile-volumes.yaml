@@ -11,7 +11,7 @@ spec:
   - ReadOnlyMany
   storageClassName: pf-local-in-storage 
   local:
-    path: <path to be placed via patch in kustomization.yaml, points to server profiles>
+    path: /home/noorbutt/ping/PingDev/Kust3
 # The following links this volumen to a node in the cluster 
   nodeAffinity:
     required: 
@@ -49,7 +49,7 @@ spec:
   - ReadOnlyMany
   storageClassName: pd-local-in-storage 
   local:
-    path: <path to be placed via patch in kustomization.yaml, points to server profiles>
+    path: /home/noorbutt/ping/PingDev/Kust3
 # The following links this volumen to a node in the cluster 
   nodeAffinity:
     required: 
