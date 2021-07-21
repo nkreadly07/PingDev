@@ -7,6 +7,7 @@ resources:
 - github.com/pingidentity/pingidentity-devops-getting-started/20-kubernetes/01-standalone/pingdataconsole
 - github.com/pingidentity/pingidentity-devops-getting-started/20-kubernetes/01-standalone/pingdirectory
 
+
 patchesJson6902:
   - target:
       group: apps
@@ -26,8 +27,6 @@ patchesJson6902:
       kind: Service
       name: pingdirectory
     patch: |-
-      - op: remove
-        path: /spec/clusterIP
       - op: add
         path: /spec/type
         value: NodePort
@@ -80,7 +79,7 @@ patchesJson6902:
     patch: |-
       - op: replace 
         path: /spec/local/path
-        value: /home/noorbutt/ping/PingDev/Kust3/pingidentity-server-profiles/baseline/pingfederate
+        value: /Users/ijaffe/devops/Fuji/lab03/pingidentity-server-profiles/getting-started/pingfederate
 # add the paths to the PingDirectory profile local folder
   - target:
       group: 
@@ -90,7 +89,7 @@ patchesJson6902:
     patch: |-
       - op: replace
         path: /spec/local/path
-        value: /home/noorbutt/ping/PingDev/Kust3/pingidentity-server-profiles/baseline/pingdirectory
+        value: /Users/ijaffe/devops/Fuji/lab03/pingidentity-server-profiles/getting-started/pingdirectory
 # insert claims and volumes for containers for the PingFederate profile
   - target:
       group: apps
